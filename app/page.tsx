@@ -2,13 +2,13 @@ const scholarUrl =
   "https://scholar.google.com.hk/citations?user=f_3PzB8AAAAJ&hl=en";
 
 const news = [
-  ["2026.07", "Released WorldSample, a closed-loop real-robot reinforcement learning framework with world modelling."],
-  ["2026.06", "Released Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation."],
-  ["2026", "Our open-world dynamic wheel recognition framework was published in IEEE Transactions on Cybernetics."],
-  ["2026.01", "Started a visiting Ph.D. appointment at Nanyang Technological University."],
-  ["2025", "Selected for the Young Elite Scientists Sponsorship Program for Ph.D. Students by CAST."],
-  ["2025.05", "Our secure unsupervised domain adaptation framework was published in IEEE Robotics and Automation Letters."],
-];
+  ["2026.07", <>We released a new work on <a href="https://arxiv.org/pdf/2607.02431" target="_blank" rel="noreferrer">world models for real-robot reinforcement learning</a>.</>],
+  ["2026.06", <>We released a new work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">preference-calibrated real-robot reinforcement learning</a>.</>],
+  ["2026.01", <>Started a one-year visiting Ph.D. appointment in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at the School of Electrical and Electronic Engineering, Nanyang Technological University, under the supervision of Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
+  ["2026.01", <>A paper on <a href="https://ieeexplore.ieee.org/abstract/document/11346042/" target="_blank" rel="noreferrer">diffusion models for industrial AIGC</a> was accepted by IEEE Transactions on Cybernetics.</>],
+  ["2025.12", "Selected for the 2025 Young Elite Scientists Sponsorship Program for Ph.D. Students by the China Association for Science and Technology (CAST)."],
+  ["2025.05", <>A paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">source-free unsupervised domain adaptation</a> was accepted by IEEE Robotics and Automation Letters.</>],
+] as const;
 
 const researchAreas = [
   ["Embodied Intelligence & Robot Learning", "Sample-efficient reinforcement learning for real-robot manipulation, human feedback, reliable value estimation, and world models."],
