@@ -85,8 +85,9 @@ a:hover { color: var(--accent); text-decoration: underline; text-underline-offse
 
 .about-section { padding-bottom: 7px; }
 .about-section p { margin: 0 0 8px; }
-.about-section .position-line { margin-bottom: 11px; padding-bottom: 9px; border-bottom: 1px solid var(--line); color: var(--accent); font-weight: 700; }
-.about-section .interest-line { margin-top: 10px; padding: 7px 9px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 12.5px; }
+.academic-positions { margin-bottom: 11px; padding-bottom: 3px; border-bottom: 1px solid var(--line); }
+.academic-positions p { margin-bottom: 8px; line-height: 1.48; }
+.academic-positions a, .about-section > p a { text-decoration: underline; text-underline-offset: 2px; }
 
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin: 0 0 7px; padding-bottom: 4px; border-bottom: 1px solid #cfd4ce; }
 .section-heading h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 19px; line-height: 1.25; }

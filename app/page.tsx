@@ -146,16 +146,27 @@ export default function Home() {
         <article className="content-column">
           <section className="about-section" id="about">
             <h2 className="sr-only">About Me</h2>
-            <p className="position-line">
-              Ph.D. Candidate, School of Automation, Central South University · Visiting Ph.D. Researcher, School of Electrical and Electronic Engineering, Nanyang Technological University
+            <div className="academic-positions">
+              <p>
+                <strong>Ph.D. Student</strong>,{" "}
+                <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a><br />
+                <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">Key Laboratory of Industrial Intelligence and Systems, Ministry of Education</a><br />
+                <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a>, Changsha 410083, China<br />
+                <strong>Supervisor:</strong> Academician <a href="https://faculty.csu.edu.cn/guiweihua/zh_CN/index.htm" target="_blank" rel="noreferrer">Weihua Gui</a>
+              </p>
+              <p>
+                <strong>Visiting Ph.D. Student</strong>,{" "}
+                <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a><br />
+                <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>, Singapore 639798<br />
+                <strong>Host Supervisor:</strong> Assistant Professor <a href="https://www.ntu.edu.sg/eee/faculty" target="_blank" rel="noreferrer">Ziwei Wang</a>
+              </p>
+            </div>
+            <p>
+              I am currently a Ph.D. student in <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a> at <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a> and a visiting Ph.D. student in <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a> at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>. I received my B.Eng. degree in Automation from Central South University in 2022. In September 2022, I was admitted to pursue a Ph.D. degree in Control Science and Engineering at Central South University. Since January 2026, I have been visiting Nanyang Technological University.
             </p>
             <p>
-              I am a Ph.D. candidate in Control Science and Engineering at <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a>, advised by Academician Weihua Gui, and a visiting Ph.D. researcher at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>, advised by Prof. Ziwei Wang.
+              My current research focuses on Industrial Intelligence and Machine Learning, Embodied Intelligence and Reinforcement Learning.
             </p>
-            <p>
-              My research focuses on reliable learning systems for real-world robotics and manufacturing. I work on sample-efficient robot learning, open-world industrial perception, domain adaptation, and generative and multimodal AI.
-            </p>
-            <p className="interest-line"><strong>Research interests:</strong> Embodied Intelligence · Reinforcement Learning · Industrial AI · Open-World Recognition · Generative & Multimodal AI</p>
           </section>
 
           <section id="news">
