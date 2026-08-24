@@ -2,12 +2,12 @@ const scholarUrl =
   "https://scholar.google.com.hk/citations?user=f_3PzB8AAAAJ&hl=en";
 
 const news = [
-  ["2026.07", <>We released a new work on <a href="https://arxiv.org/pdf/2607.02431" target="_blank" rel="noreferrer">world models for real-robot reinforcement learning</a>.</>],
-  ["2026.06", <>We released a new work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">preference-calibrated real-robot reinforcement learning</a>.</>],
-  ["2026.01", <>Started a one-year visiting Ph.D. appointment in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at the School of Electrical and Electronic Engineering, Nanyang Technological University, under the supervision of Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
-  ["2026.01", <>A paper on <a href="https://ieeexplore.ieee.org/abstract/document/11346042/" target="_blank" rel="noreferrer">diffusion models for industrial AIGC</a> was accepted by IEEE Transactions on Cybernetics.</>],
-  ["2025.12", "Selected for the 2025 Young Elite Scientists Sponsorship Program for Ph.D. Students by the China Association for Science and Technology (CAST)."],
-  ["2025.05", <>A paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">source-free unsupervised domain adaptation</a> was accepted by IEEE Robotics and Automation Letters.</>],
+  ["2026.07", <>We release one work on <a href="https://arxiv.org/pdf/2607.02431" target="_blank" rel="noreferrer">World Model for Real-Robot RL</a></>],
+  ["2026.06", <>We release one work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Real-Robot RL</a></>],
+  ["2026.01", <>Start one year visiting in <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at EEE of Nanyang Technological University, directed by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
+  ["2026.01", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/11346042/" target="_blank" rel="noreferrer">Diffusion model for Industrial AIGC</a> is accepted by IEEE T-CYB</>],
+  ["2025.12", "：入选2025年中国科协青年科技人才培育工程博士生专项计划 ."],
+  ["2025.05", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">Source-free UDA</a> is accepted by IEEE RA-L</>],
 ] as const;
 
 const researchAreas = [
@@ -172,7 +172,7 @@ export default function Home() {
           <section id="news">
             <SectionHeading index="01" title="News" />
             <ul className="news-list">
-              {news.map(([date, text]) => <li key={`${date}-${text}`}><time>{date}</time><span>{text}</span></li>)}
+              {news.map(([date, text], index) => <li key={`${date}-${index}`}><time>{date}</time><span>{text}</span></li>)}
             </ul>
           </section>
 
