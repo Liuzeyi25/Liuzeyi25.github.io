@@ -37,6 +37,10 @@ test("server-renders the revised academic homepage", async () => {
   assert.doesNotMatch(html, /：入选2025年/);
   assert.doesNotMatch(html, /sidebar-summary/);
   assert.match(html, /4 granted national invention patents/);
+  assert.match(html, /A Diffusion-based Unified Framework for Open-World Dynamic Wheel Recognition System Construction and Maintenance with Incomplete Data/);
+  assert.match(html, /href="https:\/\/github\.com\/Liuzeyi25\/TCYB-STS-DM"[^>]*>Code<\/a>/);
+  assert.match(html, /href="https:\/\/anonymous\.4open\.science\/r\/HILRL-A1X-BC05"[^>]*>Code<\/a>/);
+  assert.match(html, /href="https:\/\/xxreinsno\.github\.io\/worldsample\/"[^>]*>Website<\/a>/);
   assert.doesNotMatch(html, /id="research"/);
   assert.doesNotMatch(html, /id="projects"/);
   assert.doesNotMatch(html, /Selected Projects/);

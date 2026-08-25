@@ -10,13 +10,22 @@ const news = [
   ["2025.05", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">Source-free UDA</a> is accepted by IEEE RA-L</>],
 ] as const;
 
-const publications = [
+const publications: Array<{
+  venue: string;
+  year: string;
+  title: string;
+  authors: React.ReactNode;
+  paper: string;
+  code?: string;
+  website?: string;
+}> = [
   {
     venue: "IEEE Transactions on Cybernetics",
     year: "2026",
-    title: "A Diffusion-Based Unified Framework for Open-World Dynamic Wheel Recognition System Construction and Maintenance With Incomplete Data",
+    title: "A Diffusion-based Unified Framework for Open-World Dynamic Wheel Recognition System Construction and Maintenance with Incomplete Data",
     authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Keke Huang, Dehao Wu, Chunhua Yang</>,
     paper: "https://ieeexplore.ieee.org/document/11346042",
+    code: "https://github.com/Liuzeyi25/TCYB-STS-DM",
   },
   {
     venue: "IEEE Robotics and Automation Letters",
@@ -38,6 +47,7 @@ const publications = [
     title: "Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation",
     authors: <><strong>Zeyi Liu</strong>, Guangyao Liu, Yinuo Qu, Yuquan Xue, Bofang Jia, Chunhua Yang, Weihua Gui, Keke Huang, Ziwei Wang</>,
     paper: "https://arxiv.org/abs/2606.03949",
+    code: "https://anonymous.4open.science/r/HILRL-A1X-BC05",
   },
   {
     venue: "arXiv / CoRL submission",
@@ -45,6 +55,7 @@ const publications = [
     title: "WorldSample: Closed-loop Real-robot RL with World Modelling",
     authors: <>Yuquan Xue, Le Xu, <strong>Zeyi Liu</strong>, Zhenyu Wu, Zhengyi Gu, Xinyang Song, Bofang Jia, Ziwei Wang</>,
     paper: "https://arxiv.org/abs/2607.02431",
+    website: "https://xxreinsno.github.io/worldsample/",
   },
 ];
 
@@ -147,7 +158,11 @@ export default function Home() {
                 <li key={publication.title}>
                   <h4>{publication.paper ? <a href={publication.paper} target="_blank" rel="noreferrer">{publication.title}</a> : publication.title}</h4>
                   <p className="authors">{publication.authors}</p>
-                  <p className="publication-meta"><em>{publication.venue}</em>, {publication.year}. {publication.paper ? <a href={publication.paper} target="_blank" rel="noreferrer">Paper</a> : <span>Paper link pending</span>} · <span>Code link pending</span></p>
+                  <p className="publication-meta">
+                    <em>{publication.venue}</em>, {publication.year}.
+                    <a href={publication.paper} target="_blank" rel="noreferrer">Paper</a>
+                    {publication.code ? <><span aria-hidden="true"> · </span><a href={publication.code} target="_blank" rel="noreferrer">Code</a></> : publication.website ? <><span aria-hidden="true"> · </span><a href={publication.website} target="_blank" rel="noreferrer">Website</a></> : <><span aria-hidden="true"> · </span><span>Code link pending</span></>}
+                  </p>
                 </li>
               ))}
             </ol>
