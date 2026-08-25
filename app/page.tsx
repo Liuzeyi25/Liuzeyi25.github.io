@@ -6,7 +6,7 @@ const news = [
   ["2026.06", <>We release one work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Real-Robot RL</a></>],
   ["2026.01", <>Start one year visiting in <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at EEE of Nanyang Technological University, directed by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
   ["2026.01", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/11346042/" target="_blank" rel="noreferrer">Diffusion model for Industrial AIGC</a> is accepted by IEEE T-CYB</>],
-  ["2025.12", "：入选2025年中国科协青年科技人才培育工程博士生专项计划 ."],
+  ["2025.12", "入选2025年中国科协青年科技人才培育工程博士生专项计划 ."],
   ["2025.05", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">Source-free UDA</a> is accepted by IEEE RA-L</>],
 ] as const;
 
@@ -62,11 +62,12 @@ const reviewer = [
 ];
 
 const honors = [
-  ["2025", "Young Elite Scientists Sponsorship Program for Ph.D. Students, China Association for Science and Technology"],
   ["2024", "First Prize, Hunan Graduate Artificial Intelligence Innovation Competition"],
   ["2024", "First Prize for Outstanding Paper Presentation, Hunan Graduate Innovation Forum"],
+  ["2024", "Third Prize, China Graduate Mathematical Contest in Modeling"],
   ["2023", "Second Prize, China Graduate Mathematical Contest in Modeling"],
-  ["2022", "Outstanding Graduate, Central South University"],
+  ["2020", "National Scholarship"],
+  ["2019", "National Scholarship"],
 ];
 
 export default function Home() {
@@ -101,11 +102,6 @@ export default function Home() {
             <a href="https://github.com/Liuzeyi25" target="_blank" rel="noreferrer">GitHub</a>
             <span>CV · coming soon</span>
           </div>
-          <div className="sidebar-summary">
-            <span><strong>4</strong> granted patents</span>
-            <span><strong>2</strong> software copyrights</span>
-            <span><strong>9</strong> major honors</span>
-          </div>
         </aside>
 
         <article className="content-column">
@@ -127,7 +123,7 @@ export default function Home() {
               </p>
             </div>
             <p>
-              I am currently a Ph.D. student in <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a> at <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a> and a visiting Ph.D. student in <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a> at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">Perception and Embodied Intelligence (PINE) Lab</a> under the supervision of Assistant Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.
+              I am currently a Ph.D. student in <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a> at <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a> and a visiting Ph.D. student in <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a> at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> under the supervision of Assistant Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.
             </p>
             <p>
               My current research focuses on Industrial Intelligence and Embodied AI.
@@ -181,7 +177,7 @@ export default function Home() {
           <section id="outputs">
             <SectionHeading index="06" title="Patents & Software" />
             <ul className="output-list">
-              <li><strong>4 granted invention patents</strong> in domain adaptation, industrial fault diagnosis, zero-shot defect detection, and continual industrial monitoring.</li>
+              <li><strong>4 granted national invention patents</strong> in domain adaptation, industrial fault diagnosis, zero-shot defect detection, and continual industrial monitoring.</li>
               <li><strong>2 registered software copyrights</strong> for controllable industrial content generation and manufacturing-process monitoring platforms.</li>
             </ul>
           </section>

@@ -32,6 +32,11 @@ test("server-renders the revised academic homepage", async () => {
   assert.match(html, /Selected Publications/);
   assert.match(html, /Education/);
   assert.match(html, /Reviewer/);
+  assert.match(html, />PINE Lab<\/a>/);
+  assert.doesNotMatch(html, /Perception and Embodied Intelligence/);
+  assert.doesNotMatch(html, /：入选2025年/);
+  assert.doesNotMatch(html, /sidebar-summary/);
+  assert.match(html, /4 granted national invention patents/);
   assert.doesNotMatch(html, /id="research"/);
   assert.doesNotMatch(html, /id="projects"/);
   assert.doesNotMatch(html, /Selected Projects/);
@@ -51,5 +56,9 @@ test("keeps verified publication and reviewer metadata in source", async () => {
   assert.match(page, /IEEE Transactions on Automation Science and Engineering \(TASE\)/);
   assert.match(page, /IET Cyber-Physical Systems/);
   assert.match(page, /Conference on Robot Learning \(CoRL\)/);
+  assert.match(page, /\["2024", "Third Prize, China Graduate Mathematical Contest in Modeling"\]/);
+  assert.match(page, /\["2020", "National Scholarship"\]/);
+  assert.match(page, /\["2019", "National Scholarship"\]/);
+  assert.doesNotMatch(page, /Young Elite Scientists Sponsorship Program|Outstanding Graduate, Central South University/);
   assert.doesNotMatch(page, /const researchAreas|const projects|id="research"|id="projects"/);
 });
