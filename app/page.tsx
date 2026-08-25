@@ -185,7 +185,7 @@ export default function Home() {
           <section id="honors">
             <SectionHeading index="05" title="Honors & Awards" />
             <ul className="honors-list">
-              {honors.map(([year, honor]) => <li key={honor}><time>{year}</time><span>{honor}</span></li>)}
+              {honors.map(([year, honor], index) => <li key={`${year}-${index}`}><time>{year}</time><span>{honor}</span></li>)}
             </ul>
           </section>
 
