@@ -94,16 +94,10 @@ a:hover { color: var(--accent); text-decoration: underline; text-underline-offse
 .section-heading h3 span { display: inline-block; min-width: 27px; color: var(--accent); font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: .08em; vertical-align: 2px; }
 .section-heading > a { font-size: 11.5px; }
 
-.news-list, .honors-list, .output-list, .publication-list, .research-list { margin: 0; padding: 0; list-style: none; }
+.news-list, .honors-list, .output-list, .publication-list, .education-list, .reviewer-list { margin: 0; padding: 0; list-style: none; }
 .news-list li, .honors-list li { display: grid; grid-template-columns: 66px 1fr; gap: 11px; padding: 3px 5px; border-bottom: 1px dotted #e2e4df; transition: background .18s ease, transform .18s ease; }
 .news-list li:hover, .honors-list li:hover { background: var(--hover); transform: translateX(2px); }
 .news-list time, .honors-list time { color: var(--accent); font-size: 11.5px; font-weight: 800; }
-
-.research-list { counter-reset: research; }
-.research-list li { counter-increment: research; display: grid; grid-template-columns: minmax(200px, .7fr) 1.3fr; gap: 18px; padding: 7px 5px; border-bottom: 1px dotted #dfe2dd; }
-.research-list li::before { content: counter(research, decimal-leading-zero); position: absolute; color: #a3aaa5; font-size: 10px; }
-.research-list strong { padding-left: 27px; font-size: 12.5px; }
-.research-list span { color: var(--muted); font-size: 12.5px; }
 
 .publication-list { counter-reset: papers; }
 .publication-list > li { counter-increment: papers; position: relative; padding: 8px 7px 8px 28px; border-bottom: 1px solid var(--line); transition: background .18s ease; }
@@ -119,13 +113,10 @@ a:hover { color: var(--accent); text-decoration: underline; text-underline-offse
 .publication-meta a { margin-left: 4px; font-weight: 700; }
 .publication-meta span { color: #9aa09c; }
 
-.project-list, .timeline { border-top: 1px solid var(--line); }
-.project-list article, .timeline article { display: grid; grid-template-columns: 122px 1fr; gap: 14px; padding: 7px 5px; border-bottom: 1px solid var(--line); transition: background .18s ease; }
-.project-list article:hover, .timeline article:hover { background: var(--hover); }
-.project-list time, .timeline time { color: var(--accent); font-size: 11px; font-weight: 800; }
-.project-list h4, .timeline h4 { margin: 0 0 2px; font-size: 13px; }
-.project-list p, .timeline p { margin: 0; color: var(--muted); font-size: 12.2px; line-height: 1.42; }
-.project-list strong { display: block; margin-top: 3px; color: var(--accent); font-size: 11.5px; }
+.education-list, .reviewer-list { padding: 2px 0 0 19px; list-style: disc; }
+.education-list li, .reviewer-list li { margin: 5px 0; padding-left: 2px; }
+.education-list li::marker, .reviewer-list li::marker { color: var(--accent); }
+.education-list em { color: var(--muted); font-weight: 700; }
 
 .output-list { padding-left: 18px; list-style: square; }
 .output-list li { margin: 5px 0; padding-left: 2px; }
@@ -145,8 +136,6 @@ footer { display: flex; justify-content: space-between; margin-top: 32px; paddin
   .profile-details { margin-top: 7px; padding-top: 6px; }
   .profile-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 7px 15px; margin-top: 10px; padding-top: 8px; }
   .sidebar-summary { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 5px 14px; margin-top: 8px; padding-top: 8px; }
-  .research-list li { grid-template-columns: 1fr; gap: 2px; }
-  .research-list span { padding-left: 27px; }
 }
 
 @media (max-width: 460px) {
@@ -154,7 +143,6 @@ footer { display: flex; justify-content: space-between; margin-top: 32px; paddin
   .site-header { justify-content: center; }
   .site-header nav a:nth-child(3) { display: none; }
   .news-list li, .honors-list li { grid-template-columns: 58px 1fr; gap: 7px; padding-inline: 2px; }
-  .project-list article, .timeline article { grid-template-columns: 1fr; gap: 2px; }
   .section-heading { align-items: flex-end; }
   .section-heading > a { max-width: 120px; text-align: right; }
 }

@@ -10,90 +10,55 @@ const news = [
   ["2025.05", <>One paper on <a href="https://ieeexplore.ieee.org/abstract/document/10948317" target="_blank" rel="noreferrer">Source-free UDA</a> is accepted by IEEE RA-L</>],
 ] as const;
 
-const researchAreas = [
-  ["Embodied Intelligence & Robot Learning", "Sample-efficient reinforcement learning for real-robot manipulation, human feedback, reliable value estimation, and world models."],
-  ["Industrial Intelligence", "Open-world recognition, secure domain adaptation, continual learning, and fault diagnosis for complex manufacturing systems."],
-  ["Generative & Multimodal AI", "Controllable diffusion models and vision-language systems for generating, understanding, and reasoning about industrial visual data."],
-];
-
 const publications = [
   {
     venue: "IEEE Transactions on Cybernetics",
     year: "2026",
     title: "A Diffusion-Based Unified Framework for Open-World Dynamic Wheel Recognition System Construction and Maintenance With Incomplete Data",
-    authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Kai Huang, Donghua Wu, Chunhua Yang</>,
-  },
-  {
-    venue: "Advanced Engineering Informatics",
-    year: "2026",
-    title: "MCDML-Net: A Multi-Center Deep Metric Learning Network and Its Wheel Manufacturing Application",
-    authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Kai Huang, Donghua Wu, Chunhua Yang</>,
+    authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Keke Huang, Dehao Wu, Chunhua Yang</>,
+    paper: "https://ieeexplore.ieee.org/document/11346042",
   },
   {
     venue: "IEEE Robotics and Automation Letters",
     year: "2025",
     title: "Contrastive Learning-Based Secure Unsupervised Domain Adaptation Framework and Its Application in Cross-Factory Intelligent Manufacturing",
-    authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Kai Huang, Donghua Wu, Yue Liao, Chunhua Yang</>,
+    authors: <><strong>Zeyi Liu</strong>, Weihua Gui, Keke Huang, Dehao Wu, Yue Liao, Chunhua Yang</>,
+    paper: "https://ieeexplore.ieee.org/document/10948317",
   },
   {
     venue: "IEEE Transactions on Automation Science and Engineering",
-    year: "2022",
+    year: "2024",
     title: "Fault Diagnosis of Complex Industrial Systems Based on Multi-Granularity Dictionary Learning and Its Application",
-    authors: <><strong>Zeyi Liu</strong>, Donghua Wu, Kai Huang, Chunhua Yang, Weihua Gui</>,
+    authors: <><strong>Zeyi Liu</strong>, Dehao Wu, Keke Huang, Chunhua Yang, Weihua Gui</>,
+    paper: "https://ieeexplore.ieee.org/document/9963791",
   },
   {
     venue: "arXiv / CoRL submission",
     year: "2026",
     title: "Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation",
-    authors: <><strong>Zeyi Liu</strong>, Guangda Liu, Yiting Qu, Yuxuan Xue, Boyuan Jia, Chunhua Yang, Weihua Gui, Kai Huang, Ziwei Wang</>,
+    authors: <><strong>Zeyi Liu</strong>, Guangyao Liu, Yinuo Qu, Yuquan Xue, Bofang Jia, Chunhua Yang, Weihua Gui, Keke Huang, Ziwei Wang</>,
     paper: "https://arxiv.org/abs/2606.03949",
   },
   {
     venue: "arXiv / CoRL submission",
     year: "2026",
-    title: "WorldSample: Closed-Loop Real-Robot RL with World Modelling",
-    authors: <>Yuxuan Xue, Long Xu, <strong>Zeyi Liu</strong>, Zhenyu Wu, Zijian Gu, Xiaoxiao Song, Boyuan Jia, Ziwei Wang</>,
+    title: "WorldSample: Closed-loop Real-robot RL with World Modelling",
+    authors: <>Yuquan Xue, Le Xu, <strong>Zeyi Liu</strong>, Zhenyu Wu, Zhengyi Gu, Xinyang Song, Bofang Jia, Ziwei Wang</>,
     paper: "https://arxiv.org/abs/2607.02431",
-  },
-  {
-    venue: "IEEE Transactions on Instrumentation and Measurement",
-    year: "2024",
-    title: "Open World Wheels Recognition for Incomplete Data: A Two-Stage Solution Combining Data Generation and Metric Learning",
-    authors: <>Kai Huang, Peng Wang, <strong>Zeyi Liu</strong>, Donghua Wu, Chunhua Yang, Weihua Gui</>,
-  },
-  {
-    venue: "IEEE Transactions on Reliability",
-    year: "2025",
-    title: "Attention-Based Mask Network Model for Multirate Sampling Data Fault Diagnosis",
-    authors: <>Kai Huang, <strong>Zeyi Liu</strong>, Shiyu Wu, Chunhua Yang, Weihua Gui</>,
-  },
-];
-
-const projects = [
-  {
-    date: "2026.02—06",
-    title: "Preference-Calibrated Human-in-the-Loop Real-Robot RL",
-    description: "Identifies suboptimal segments in successful intervention trajectories and calibrates critic targets and actor updates using intervention-derived preferences.",
-    result: "+24.5% success · −14.8% interventions · 1.3× faster",
-  },
-  {
-    date: "2024.12—Now",
-    title: "Generative Decision-Making Industrial Foundation Model",
-    description: "Structure- and style-controllable wheel diffusion, plus vision-language reasoning for zero-shot anomaly localization under limited data.",
-    result: "+15.3% generation accuracy · 95.8% anomaly detection",
-  },
-  {
-    date: "2023.01—2024.06",
-    title: "Full-Process Wheel Quality Inspection System",
-    description: "Open-set multi-center recognition with cloud-edge deployment, service packaging, production data management, and real-time visualization.",
-    result: "+8% recognition accuracy · independently tested deployment",
   },
 ];
 
 const education = [
-  ["2026.01—2027.01", "Visiting Ph.D. Researcher", "Nanyang Technological University, Singapore · Advisor: Prof. Ziwei Wang"],
-  ["2022.09—2027.06", "Ph.D. Candidate in Control Science and Engineering", "Central South University · Advisor: Academician Weihua Gui"],
-  ["2018.09—2022.06", "B.Eng. in Automation", "Central South University · Rank 3/256 (top 2%) · Two-time National Scholarship recipient"],
+  <><em>2026.01 - 2027.01</em>, Visiting Ph.D. Student, School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore.</>,
+  <><em>2022.09 - 2027.06</em>, Ph.D. Student in Control Science and Engineering, School of Automation, Central South University, Changsha.</>,
+  <><em>2018.09 - 2022.06</em>, B.Eng. in Automation, School of Automation, Central South University, Changsha.</>,
+];
+
+const reviewer = [
+  "IEEE Transactions on Industrial Informatics (TII)",
+  "IEEE Transactions on Automation Science and Engineering (TASE)",
+  "IET Cyber-Physical Systems",
+  "Conference on Robot Learning (CoRL)",
 ];
 
 const honors = [
@@ -113,8 +78,8 @@ export default function Home() {
           <a href="#about">About</a>
           <a href="#news">News</a>
           <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
           <a href="#education">Education</a>
+          <a href="#reviewer">Reviewer</a>
           <a href="#honors">Honors</a>
         </nav>
       </header>
@@ -179,17 +144,8 @@ export default function Home() {
             </ul>
           </section>
 
-          <section id="research">
-            <SectionHeading index="02" title="Research" />
-            <ol className="research-list">
-              {researchAreas.map(([title, description]) => (
-                <li key={title}><strong>{title}</strong><span>{description}</span></li>
-              ))}
-            </ol>
-          </section>
-
           <section id="publications">
-            <SectionHeading index="03" title="Selected Publications" action={<a href={scholarUrl} target="_blank" rel="noreferrer">Full list on Google Scholar ↗</a>} />
+            <SectionHeading index="02" title="Selected Publications" action={<a href={scholarUrl} target="_blank" rel="noreferrer">Full list on Google Scholar ↗</a>} />
             <ol className="publication-list">
               {publications.map((publication) => (
                 <li key={publication.title}>
@@ -201,40 +157,29 @@ export default function Home() {
             </ol>
           </section>
 
-          <section id="projects">
-            <SectionHeading index="04" title="Selected Projects" />
-            <div className="project-list">
-              {projects.map((project) => (
-                <article key={project.title}>
-                  <time>{project.date}</time>
-                  <div>
-                    <h4>{project.title}</h4>
-                    <p>{project.description}</p>
-                    <strong>{project.result}</strong>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <section id="education">
+            <SectionHeading index="03" title="Education" />
+            <ul className="education-list">
+              {education.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
           </section>
 
-          <section id="education">
-            <SectionHeading index="05" title="Education" />
-            <div className="timeline">
-              {education.map(([date, title, detail]) => (
-                <article key={title}><time>{date}</time><div><h4>{title}</h4><p>{detail}</p></div></article>
-              ))}
-            </div>
+          <section id="reviewer">
+            <SectionHeading index="04" title="Reviewer" />
+            <ul className="reviewer-list">
+              {reviewer.map((venue) => <li key={venue}>{venue}</li>)}
+            </ul>
           </section>
 
           <section id="honors">
-            <SectionHeading index="06" title="Honors & Awards" />
+            <SectionHeading index="05" title="Honors & Awards" />
             <ul className="honors-list">
               {honors.map(([year, honor]) => <li key={honor}><time>{year}</time><span>{honor}</span></li>)}
             </ul>
           </section>
 
           <section id="outputs">
-            <SectionHeading index="07" title="Patents & Software" />
+            <SectionHeading index="06" title="Patents & Software" />
             <ul className="output-list">
               <li><strong>4 granted invention patents</strong> in domain adaptation, industrial fault diagnosis, zero-shot defect detection, and continual industrial monitoring.</li>
               <li><strong>2 registered software copyrights</strong> for controllable industrial content generation and manufacturing-process monitoring platforms.</li>
