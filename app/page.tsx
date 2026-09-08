@@ -51,7 +51,7 @@ const publications: Array<{
     code: "https://anonymous.4open.science/r/HILRL-A1X-BC05",
   },
   {
-    venue: "arXiv / CoRL submission",
+    venue: "RAL submission",
     year: "2026",
     title: "WorldSample: Closed-loop Real-robot RL with World Modelling",
     authors: <>Yuquan Xue, Le Xu, <strong>Zeyi Liu</strong>, Zhenyu Wu, Zhengyi Gu, Xinyang Song, Bofang Jia, Ziwei Wang</>,
