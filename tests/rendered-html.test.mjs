@@ -1,34 +1,11 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+const publicOutput = new URL("../dist/client/", import.meta.url);
 
-  return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-}
-
-test("server-renders the revised academic homepage", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
+test("exports the revised academic homepage as static HTML", async () => {
+  const html = await readFile(new URL("index.html", publicOutput), "utf8");
   assert.match(html, /Selected Publications/);
   assert.match(html, /Education/);
   assert.match(html, /Reviewer/);
@@ -48,6 +25,22 @@ test("server-renders the revised academic homepage", async () => {
   const publicationList = html.match(/<ol class="publication-list">([\s\S]*?)<\/ol>/)?.[1];
   assert.ok(publicationList, "publication list should be rendered");
   assert.equal((publicationList.match(/<li>/g) ?? []).length, 5);
+});
+
+test("exports GitHub Pages metadata and every referenced local asset", async () => {
+  const html = await readFile(new URL("index.html", publicOutput), "utf8");
+  assert.match(html, /<link[^>]*rel="canonical"[^>]*href="https:\/\/liuzeyi25\.github\.io\/"/);
+  assert.match(html, /<meta[^>]*property="og:image"[^>]*content="https:\/\/liuzeyi25\.github\.io\/og\.png"/);
+  assert.doesNotMatch(html, /chatgpt\.site|\/_vinext\/image/);
+
+  const localAssets = [...html.matchAll(/(?:src|href)="(\/(?!\/)[^"?#]+)(?:[?#][^"]*)?"/g)]
+    .map((match) => match[1])
+    .filter((path) => path !== "/");
+  assert.ok(localAssets.some((path) => path.endsWith(".css")), "must export the stylesheet");
+  assert.ok(localAssets.includes("/profile.jpg"), "must export the profile image");
+  for (const path of new Set([...localAssets, "/og.png"])) {
+    await access(new URL(`.${path}`, publicOutput));
+  }
 });
 
 test("keeps verified publication and reviewer metadata in source", async () => {

@@ -1,100 +1,67 @@
-# vinext-starter
+# Zeyi Liu · Academic Homepage
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+个人学术主页，使用 React + vinext 构建，通过 GitHub Actions 自动发布到 GitHub Pages。
 
-## Prerequisites
+网站地址：https://liuzeyi25.github.io/
 
-- Node.js `>=22.13.0`
+## 更新主页内容
 
-## Quick Start
+日常更新主要编辑 `app/page.tsx`。可直接在 GitHub 打开文件，点击铅笔编辑并提交到 `main`。
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+| 内容 | 编辑位置 |
+| --- | --- |
+| 新闻 | `app/page.tsx` 中的 `const news` |
+| 论文 | `app/page.tsx` 中的 `const publications` |
+| 教育经历 | `app/page.tsx` 中的 `const education` |
+| 审稿经历 | `app/page.tsx` 中的 `const reviewer` |
+| 奖项 | `app/page.tsx` 中的 `const honors` |
+| 简介、单位、邮箱、专利、页脚日期 | `app/page.tsx` 中对应文字 |
+| 字体、颜色、布局 | `app/globals.css` |
+| 网站标题、描述、分享预览 | `app/layout.tsx` |
+| 头像 | `public/profile.jpg` |
+| 分享预览图 | `public/og.png` |
 
-This starter does not use `wrangler.jsonc`.
+新增论文：复制 `publications` 数组中的一个对象，修改 `venue`、`year`、`title`、`authors`、`paper`；`code` 和 `website` 为可选字段。目前同时填写这两个字段时，页面优先显示 Code 链接。
 
-## Included Shape
-
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
-
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
+新增新闻：在 `news` 数组最前面添加，例如：
 
 ```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+["2026.09", "One paper is accepted by XXX."],
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+图片、PDF 等文件放入 `public/`。例如 `public/cv.pdf` 在页面中引用为 `/cv.pdf`。
+更新内容时，请同步修改页脚的 `Last updated` 日期。
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+## 本地开发和验证
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+需要 Node.js >= 22.13.0；GitHub Actions 使用 Node.js 22。
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+```bash
+npm ci
+npm run dev
+```
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+提交前验证：
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+```bash
+npm test
+```
 
-## Useful Commands
+`npm test` 先构建静态网站，再检查导出的首页内容、分享信息及本地资源是否完整。
+单独构建使用 `npm run build`，可部署的静态文件位于 **`dist/client/`**。
 
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+## GitHub Pages 部署
 
-## Learn More
+1. 打开仓库 **Settings → Pages**。
+2. 在 **Build and deployment → Source** 选择 **GitHub Actions**。
+3. 将代码提交到 `main`，或在 **Actions → Deploy homepage to GitHub Pages → Run workflow** 手动部署。
+4. 工作流成功后，访问 https://liuzeyi25.github.io/ 。
 
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+`.github/workflows/deploy.yml` 会构建、测试并发布 `dist/client/`。Pull request 只执行构建和测试，不发布。
+不需要 Cloudflare 账号、API Token 或额外仓库 Secrets。
+
+不要选择 `Deploy from a branch` 的 `main / (root)`：仓库根目录是源码，GitHub Pages 需要构建后的静态文件。
+
+`next.config.ts` 启用 `output: "export"`；`app/layout.tsx` 使用固定的网站地址生成元信息，不依赖请求头。
+以后新增页面也必须能在构建时生成；GitHub Pages 不运行 API、数据库查询、登录服务或其他服务器逻辑。
+仓库中的 `worker/`、`db/`、`drizzle/`、`examples/d1/` 和 `app/chatgpt-auth.ts` 是原模板遗留文件，不参与当前主页的部署。

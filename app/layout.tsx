@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,23 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "zeyi-liu-academic.lauzeyi621.chatgpt.site";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? "https";
-  const imageUrl = `${protocol}://${host}/og.png`;
+export function generateMetadata(): Metadata {
+  const siteUrl = "https://liuzeyi25.github.io";
+  const imageUrl = `${siteUrl}/og.png`;
   const title = "Zeyi Liu | Academic Homepage";
   const description =
     "Academic homepage of Zeyi Liu, researching embodied intelligence, reinforcement learning, and industrial AI.";
 
   return {
+    metadataBase: new URL(siteUrl),
     title,
     description,
+    alternates: { canonical: `${siteUrl}/` },
     icons: { icon: "/profile.jpg", shortcut: "/profile.jpg" },
     openGraph: {
       title,
       description,
       type: "website",
+      url: `${siteUrl}/`,
       images: [{ url: imageUrl, width: 1732, height: 908, alt: title }],
     },
     twitter: {
