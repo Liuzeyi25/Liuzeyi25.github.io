@@ -2,6 +2,7 @@ const scholarUrl =
   "https://scholar.google.com.hk/citations?user=f_3PzB8AAAAJ&hl=en";
 
 const news = [
+  ["2026.09", <>Our paper <a href="https://arxiv.org/abs/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation</a> has been accepted to CoRL 2026.</>],
   ["2026.07", <>We release one work on <a href="https://arxiv.org/pdf/2607.02431" target="_blank" rel="noreferrer">World Model for Real-Robot RL</a></>],
   ["2026.06", <>We release one work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Real-Robot RL</a></>],
   ["2026.01", <>Start one year visiting in <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at EEE of Nanyang Technological University, directed by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
@@ -42,7 +43,7 @@ const publications: Array<{
     paper: "https://ieeexplore.ieee.org/document/9963791",
   },
   {
-    venue: "arXiv / CoRL submission",
+    venue: "10th Conference on Robot Learning",
     year: "2026",
     title: "Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation",
     authors: <><strong>Zeyi Liu</strong>, Guangyao Liu, Yinuo Qu, Yuquan Xue, Bofang Jia, Chunhua Yang, Weihua Gui, Keke Huang, Ziwei Wang</>,
@@ -140,7 +141,7 @@ export default function Home() {
               My current research focuses on Industrial Intelligence and Embodied AI.
             </p>
             <p>
-              🔥🔥 I am looking for collaborators interested in Embodied AI, particularly Real-World RL and World Models for RL. Feel free to <a href="mailto:liuzeyi@csu.edu.cn">contact me</a>.
+              🔥🔥 I am looking for collaborators interested in Embodied AI, particularly real-world RL. Feel free to <a href="mailto:liuzeyi@csu.edu.cn">contact me</a>.
             </p>
           </section>
 
@@ -199,7 +200,7 @@ export default function Home() {
 
           <footer>
             <span>© 2026 Zeyi Liu</span>
-            <span>Last updated August 2026</span>
+            <span>Last updated September 2026</span>
           </footer>
         </article>
       </div>
