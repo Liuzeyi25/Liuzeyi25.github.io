@@ -2,7 +2,7 @@ const scholarUrl =
   "https://scholar.google.com.hk/citations?user=f_3PzB8AAAAJ&hl=en";
 
 const news = [
-  ["2026.09", <>Our paper <a href="https://arxiv.org/abs/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation</a> has been accepted to CoRL 2026.</>],
+  ["2026.09", "one paper is accepted to CoRL 2026"],
   ["2026.07", <>We release one work on <a href="https://arxiv.org/pdf/2607.02431" target="_blank" rel="noreferrer">World Model for Real-Robot RL</a></>],
   ["2026.06", <>We release one work on <a href="https://arxiv.org/pdf/2606.03949" target="_blank" rel="noreferrer">Preference-Calibrated Real-Robot RL</a></>],
   ["2026.01", <>Start one year visiting in <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> at EEE of Nanyang Technological University, directed by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.</>],
