@@ -33,7 +33,7 @@ test("exports GitHub Pages metadata and every referenced local asset", async () 
   assert.match(html, /aria-label="View live visitor statistics on MapMyVisitors"/);
   assert.match(html, /href="https:\/\/mapmyvisitors\.com\/web\/1c8ie"/);
   assert.match(html, /id="mapmyvisitors-tracker-host"/);
-  assert.doesNotMatch(html, /mapmyvisitors\.com\/globe\.js/, "tracker must not execute during static rendering");
+  assert.match(html, /id="mapmyvisitors-loader"/);
   for (const path of new Set([...localAssets, "/og.png"])) {
     await access(new URL(`.${path}`, publicOutput));
   }
@@ -43,7 +43,8 @@ test("loads the visitor tracker only on the production hostname", async () => {
   const tracker = await readFile(new URL("../app/map-my-visitors-tracker.tsx", import.meta.url), "utf8");
   assert.match(tracker, /window\.location\.hostname !== "liuzeyi25\.github\.io"/);
   assert.match(tracker, /https:\/\/mapmyvisitors\.com\/globe\.js\?d=13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0/);
-  assert.match(tracker, /document\.getElementById\(TRACKER_SCRIPT_ID\)/, "tracker must guard against duplicate loads");
+  assert.match(tracker, /document\.getElementById\("\$\{TRACKER_SCRIPT_ID\}"\)/, "tracker must guard against duplicate loads");
+  assert.match(tracker, /script\.async = false/, "the native widget must register before the window load event");
 
   const stylesheet = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(stylesheet, /\.mapmyvisitors-tracker\s*\{[\s\S]*?width:\s*100px;[\s\S]*?height:\s*110px;/);
