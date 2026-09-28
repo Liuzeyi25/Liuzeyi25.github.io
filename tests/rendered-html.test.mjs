@@ -29,7 +29,20 @@ test("exports GitHub Pages metadata and every referenced local asset", async () 
     .filter((path) => path !== "/");
   assert.ok(localAssets.some((path) => path.endsWith(".css")), "must export the stylesheet");
   assert.ok(localAssets.includes("/profile.jpg"), "must export the profile image");
+  assert.match(html, /class="visitor-globe"/);
+  assert.match(html, /aria-label="View live visitor statistics on MapMyVisitors"/);
+  assert.match(html, /href="https:\/\/mapmyvisitors\.com\/web\/1c8ie"/);
+  assert.match(html, /id="mapmyvisitors-tracker-host"/);
+  assert.doesNotMatch(html, /mapmyvisitors\.com\/globe\.js/, "tracker must not execute during static rendering");
+  await access(new URL("visitor-globe.svg", publicOutput));
   for (const path of new Set([...localAssets, "/og.png"])) {
     await access(new URL(`.${path}`, publicOutput));
   }
+});
+
+test("loads the visitor tracker only on the production hostname", async () => {
+  const tracker = await readFile(new URL("../app/map-my-visitors-tracker.tsx", import.meta.url), "utf8");
+  assert.match(tracker, /window\.location\.hostname !== "liuzeyi25\.github\.io"/);
+  assert.match(tracker, /https:\/\/mapmyvisitors\.com\/globe\.js\?d=13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0/);
+  assert.match(tracker, /document\.getElementById\(TRACKER_SCRIPT_ID\)/, "tracker must guard against duplicate loads");
 });

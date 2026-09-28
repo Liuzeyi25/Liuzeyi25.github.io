@@ -1,3 +1,5 @@
+import { MapMyVisitorsTracker } from "./map-my-visitors-tracker";
+
 const scholarUrl =
   "https://scholar.google.com.hk/citations?user=f_3PzB8AAAAJ&hl=en";
 
@@ -121,27 +123,25 @@ export default function Home() {
             <h2 className="sr-only">About Me</h2>
             <div className="academic-positions">
               <p>
-                <strong>Ph.D. Student</strong>,{" "}
-                <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a><br />
+                <strong>Ph.D. Student</strong>, School of Automation<br />
                 <a href="https://baike.baidu.com/item/%E5%B7%A5%E4%B8%9A%E6%99%BA%E8%83%BD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%95%99%E8%82%B2%E9%83%A8%E9%87%8D%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4/62846869" target="_blank" rel="noreferrer">Key Laboratory of Industrial Intelligence and Systems, Ministry of Education</a><br />
-                <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a>, Changsha 410083, China<br />
+                Central South University, Changsha 410083, China<br />
                 <strong>Supervisors:</strong> <a href="https://faculty.csu.edu.cn/guiweihua/zh_CN/index.htm" target="_blank" rel="noreferrer">Weihua Gui</a>, Academician of the Chinese Academy of Engineering, and Professor <a href="https://faculty.csu.edu.cn/huangkeke/zh_CN/index/64160/list/index.htm" target="_blank" rel="noreferrer">Keke Huang</a>
               </p>
               <p>
-                <strong>Visiting Ph.D. Student</strong>,{" "}
-                <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a><br />
-                <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>, Singapore 639798<br />
+                <strong>Visiting Ph.D. Student</strong>, School of Electrical and Electronic Engineering<br />
+                Nanyang Technological University, Singapore 639798<br />
                 <strong>Supervisor:</strong> Assistant Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>
               </p>
             </div>
             <p>
-              I am currently a Ph.D. student in <a href="https://soa.csu.edu.cn/" target="_blank" rel="noreferrer">School of Automation</a> at <a href="https://en.csu.edu.cn/" target="_blank" rel="noreferrer">Central South University</a> and a visiting Ph.D. student in <a href="https://www.ntu.edu.sg/eee" target="_blank" rel="noreferrer">School of Electrical and Electronic Engineering</a> at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noreferrer">Nanyang Technological University</a>. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> under the supervision of Assistant Professor <a href="https://ziweiwangthu.github.io/" target="_blank" rel="noreferrer">Ziwei Wang</a>.
+              I am currently a Ph.D. student in School of Automation at Central South University and a visiting Ph.D. student in School of Electrical and Electronic Engineering at Nanyang Technological University. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> under the supervision of Assistant Professor Ziwei Wang.
             </p>
             <p>
               My current research focuses on Industrial Intelligence and Embodied AI.
             </p>
             <p>
-              🔥🔥 I am looking for collaborators interested in Embodied AI, particularly real-world RL. Feel free to <a href="mailto:liuzeyi@csu.edu.cn">contact me</a>.
+              🔥🔥 I am looking for collaborators interested in Embodied AI, particularly real-world RL. Feel free to contact me.
             </p>
           </section>
 
@@ -200,6 +200,7 @@ export default function Home() {
 
           <footer>
             <span>© 2026 Zeyi Liu</span>
+            <MiniVisitorGlobe />
             <span>Last updated September 2026</span>
           </footer>
         </article>
@@ -213,6 +214,28 @@ function SectionHeading({ index, title, action }: { index: string; title: string
     <div className="section-heading">
       <h3><span>{index}</span>{title}</h3>
       {action}
+    </div>
+  );
+}
+
+function MiniVisitorGlobe() {
+  return (
+    <div className="visitor-globe">
+      <a
+        className="visitor-globe-link"
+        href="https://mapmyvisitors.com/web/1c8ie"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="View live visitor statistics on MapMyVisitors"
+        title="Live visitor statistics by MapMyVisitors"
+      >
+        <span className="visitor-globe-visual" aria-hidden="true" />
+        <span className="visitor-globe-caption">
+          <span>Visitor map</span>
+          <small>MapMyVisitors</small>
+        </span>
+      </a>
+      <MapMyVisitorsTracker />
     </div>
   );
 }

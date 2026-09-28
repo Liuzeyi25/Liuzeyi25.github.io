@@ -20,6 +20,7 @@
 | 网站标题、描述、分享预览 | `app/layout.tsx` |
 | 头像 | `public/profile.jpg` |
 | 分享预览图 | `public/og.png` |
+| 访客地球与统计入口 | `app/page.tsx`、`app/map-my-visitors-tracker.tsx`、`public/visitor-globe.svg` |
 
 新增论文：复制 `publications` 数组中的一个对象，修改 `venue`、`year`、`title`、`authors`、`paper`；`code` 和 `website` 为可选字段。目前同时填写这两个字段时，页面优先显示 Code 链接。
 
@@ -31,6 +32,8 @@
 
 图片、PDF 等文件放入 `public/`。例如 `public/cv.pdf` 在页面中引用为 `/cv.pdf`。
 更新内容时，请同步修改页脚的 `Last updated` 日期。
+
+访客统计由 MapMyVisitors 提供。追踪脚本仅在正式域名 `liuzeyi25.github.io` 加载，因此本地开发和预览不会计入线上访客数据。
 
 ## 本地开发和验证
 
