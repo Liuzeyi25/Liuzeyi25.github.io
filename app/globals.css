@@ -137,7 +137,10 @@ footer > :last-child { justify-self: end; text-align: right; }
 footer > span { white-space: nowrap; }
 
 .visitor-globe {
-  width: 90px;
+  display: grid;
+  width: 100px;
+  justify-items: center;
+  gap: 1px;
 }
 .visitor-globe-link {
   display: grid;
@@ -158,24 +161,13 @@ footer > span { white-space: nowrap; }
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
-.visitor-globe-visual {
-  display: block;
-  width: 82px;
-  height: 82px;
-  background: url("/visitor-globe.svg") center / contain no-repeat;
-  filter: drop-shadow(0 2px 5px rgba(46, 74, 86, .14));
-}
 .visitor-globe-caption { display: grid; gap: 1px; }
 .visitor-globe-caption small { color: var(--muted); font-size: 9px; letter-spacing: .01em; }
 .mapmyvisitors-tracker {
-  position: fixed;
-  top: 0;
-  left: -10000px;
   width: 100px;
-  height: 100px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
+  height: 110px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 5px rgba(46, 74, 86, .12));
 }
 
 @media (max-width: 760px) {
@@ -202,9 +194,8 @@ footer > span { white-space: nowrap; }
   footer > span { white-space: normal; }
   footer > span:first-child { grid-column: 1; grid-row: 2; }
   footer > span:last-child { grid-column: 2; grid-row: 2; }
-  .visitor-globe { grid-column: 1 / -1; grid-row: 1; justify-self: center; width: 76px; }
+  .visitor-globe { grid-column: 1 / -1; grid-row: 1; justify-self: center; width: 100px; }
   .visitor-globe-link { font-size: 10px; }
-  .visitor-globe-visual { width: 72px; height: 72px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

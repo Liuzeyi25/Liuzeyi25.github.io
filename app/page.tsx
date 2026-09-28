@@ -221,6 +221,7 @@ function SectionHeading({ index, title, action }: { index: string; title: string
 function MiniVisitorGlobe() {
   return (
     <div className="visitor-globe">
+      <MapMyVisitorsTracker />
       <a
         className="visitor-globe-link"
         href="https://mapmyvisitors.com/web/1c8ie"
@@ -229,13 +230,11 @@ function MiniVisitorGlobe() {
         aria-label="View live visitor statistics on MapMyVisitors"
         title="Live visitor statistics by MapMyVisitors"
       >
-        <span className="visitor-globe-visual" aria-hidden="true" />
         <span className="visitor-globe-caption">
           <span>Visitor map</span>
           <small>MapMyVisitors</small>
         </span>
       </a>
-      <MapMyVisitorsTracker />
     </div>
   );
 }
