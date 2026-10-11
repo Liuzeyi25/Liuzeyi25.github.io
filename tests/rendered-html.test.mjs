@@ -38,10 +38,14 @@ test("exports GitHub Pages metadata and every referenced local asset", async () 
   }
 });
 
-test("loads the visitor tracker only on the production hostname", async () => {
+test("loads the visitor trackers only on the production hostname", async () => {
   const tracker = await readFile(new URL("../app/map-my-visitors-tracker.tsx", import.meta.url), "utf8");
   assert.match(tracker, /window\.location\.hostname !== "liuzeyi25\.github\.io"/);
   assert.match(tracker, /https:\/\/mapmyvisitors\.com\/globe\.js\?d=13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0/);
+  assert.match(tracker, /https:\/\/mapmyvisitors\.com\/map\.png\?d=e8DrYxcAeyp3bE0GLWxOvsetl6F4OUAfnfjwXLAIf7Y&cl=ffffff/);
+  assert.match(tracker, /if \(trackerWindow\.__mapMyVisitorsTrackingPixel\) return;/, "tracking pixel must be loaded once per pageview");
+  assert.match(tracker, /new Image\(1, 1\)/, "the tracker must not affect the visible footer layout");
+  assert.match(tracker, /ensureTrackingPixel\(\)/, "the working image endpoint must record the visit independently of the globe");
   assert.match(tracker, /if \(!document\.getElementById\(TRACKER_SCRIPT_ID\)\)/, "tracker must guard against duplicate loads");
   assert.match(tracker, /new MutationObserver\(attemptStart\)/, "tracker must wait for the native globe markup");
   assert.match(tracker, /document\.readyState === "complete"/, "tracker must only replay a load event that the widget missed");

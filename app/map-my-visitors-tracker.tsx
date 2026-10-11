@@ -6,6 +6,8 @@ const TRACKER_HOST_ID = "mapmyvisitors-tracker-host";
 const TRACKER_SCRIPT_ID = "mmvst_globe";
 const TRACKER_SCRIPT_URL =
   "https://mapmyvisitors.com/globe.js?d=13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0";
+const TRACKING_PIXEL_URL =
+  "https://mapmyvisitors.com/map.png?d=e8DrYxcAeyp3bE0GLWxOvsetl6F4OUAfnfjwXLAIf7Y&cl=ffffff";
 
 type GlobeJQuery = (target: Window) => {
   triggerHandler(eventName: string): void;
@@ -13,6 +15,7 @@ type GlobeJQuery = (target: Window) => {
 
 type GlobeWindow = Window & {
   globe_jq?: GlobeJQuery;
+  __mapMyVisitorsTrackingPixel?: HTMLImageElement;
 };
 
 function startNativeGlobe(host: HTMLElement) {
@@ -28,9 +31,21 @@ function startNativeGlobe(host: HTMLElement) {
   return true;
 }
 
+function ensureTrackingPixel() {
+  const trackerWindow = window as GlobeWindow;
+  if (trackerWindow.__mapMyVisitorsTrackingPixel) return;
+
+  const pixel = new Image(1, 1);
+  pixel.alt = "";
+  trackerWindow.__mapMyVisitorsTrackingPixel = pixel;
+  pixel.src = TRACKING_PIXEL_URL;
+}
+
 export function MapMyVisitorsTracker() {
   useEffect(() => {
     if (window.location.hostname !== "liuzeyi25.github.io") return;
+
+    ensureTrackingPixel();
 
     const host = document.getElementById(TRACKER_HOST_ID);
     if (!host) return;
