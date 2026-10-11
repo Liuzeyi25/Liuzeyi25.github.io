@@ -224,7 +224,7 @@ function MiniVisitorGlobe() {
       <MapMyVisitorsTracker />
       <a
         className="visitor-globe-link"
-        href="https://mapmyvisitors.com/web/1c8ie"
+        href="https://mapmyvisitors.com/web/1c8t6"
         target="_blank"
         rel="noreferrer"
         aria-label="View live visitor statistics on MapMyVisitors"

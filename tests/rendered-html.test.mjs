@@ -31,21 +31,20 @@ test("exports GitHub Pages metadata and every referenced local asset", async () 
   assert.ok(localAssets.includes("/profile.jpg"), "must export the profile image");
   assert.match(html, /class="visitor-globe"/);
   assert.match(html, /aria-label="View live visitor statistics on MapMyVisitors"/);
-  assert.match(html, /href="https:\/\/mapmyvisitors\.com\/web\/1c8ie"/);
+  assert.match(html, /href="https:\/\/mapmyvisitors\.com\/web\/1c8t6"/);
+  assert.doesNotMatch(html, /mapmyvisitors\.com\/web\/1c8ie/);
   assert.match(html, /id="mapmyvisitors-tracker-host"/);
   for (const path of new Set([...localAssets, "/og.png"])) {
     await access(new URL(`.${path}`, publicOutput));
   }
 });
 
-test("loads the visitor trackers only on the production hostname", async () => {
+test("loads the native visitor globe only on the production hostname", async () => {
   const tracker = await readFile(new URL("../app/map-my-visitors-tracker.tsx", import.meta.url), "utf8");
   assert.match(tracker, /window\.location\.hostname !== "liuzeyi25\.github\.io"/);
-  assert.match(tracker, /https:\/\/mapmyvisitors\.com\/globe\.js\?d=13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0/);
-  assert.match(tracker, /https:\/\/mapmyvisitors\.com\/map\.png\?d=e8DrYxcAeyp3bE0GLWxOvsetl6F4OUAfnfjwXLAIf7Y&cl=ffffff/);
-  assert.match(tracker, /if \(trackerWindow\.__mapMyVisitorsTrackingPixel\) return;/, "tracking pixel must be loaded once per pageview");
-  assert.match(tracker, /new Image\(1, 1\)/, "the tracker must not affect the visible footer layout");
-  assert.match(tracker, /ensureTrackingPixel\(\)/, "the working image endpoint must record the visit independently of the globe");
+  assert.match(tracker, /https:\/\/mapmyvisitors\.com\/globe\.js\?d=I-__iZrXFcHfzEXPbD_E0f9ipSE8cNnANPUFRBu-c2Q/);
+  assert.doesNotMatch(tracker, /map\.png|TRACKING_PIXEL_URL|ensureTrackingPixel/);
+  assert.doesNotMatch(tracker, /13jUMirMAJnP2c1fsQX0pFNeS3qvzUU11sSoac1KKp0/);
   assert.match(tracker, /if \(!document\.getElementById\(TRACKER_SCRIPT_ID\)\)/, "tracker must guard against duplicate loads");
   assert.match(tracker, /new MutationObserver\(attemptStart\)/, "tracker must wait for the native globe markup");
   assert.match(tracker, /document\.readyState === "complete"/, "tracker must only replay a load event that the widget missed");
