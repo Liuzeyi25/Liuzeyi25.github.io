@@ -16,6 +16,19 @@ test("exports the revised academic homepage as static HTML", async () => {
   const publicationList = html.match(/<ol class="publication-list">([\s\S]*?)<\/ol>/)?.[1];
   assert.ok(publicationList, "publication list should be rendered");
   assert.ok((publicationList.match(/<li>/g) ?? []).length > 0, "must render publication entries before JavaScript runs");
+
+  const aboutSection = html.match(/<section class="about-section" id="about">([\s\S]*?)<\/section>/)?.[1];
+  assert.ok(aboutSection, "about section should be rendered");
+  const introduction = aboutSection.match(/<\/div><p>([\s\S]*?)<\/p>/)?.[1];
+  assert.ok(introduction, "about introduction should follow the academic positions");
+  assert.match(introduction, /under the supervision of Prof\. <a[^>]+>Weihua Gui<\/a> and Prof\. <a[^>]+>Keke Huang<\/a>/);
+
+  const pactPublication = publicationList
+    .split("<li>")
+    .find((entry) => entry.includes("Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation"));
+  assert.ok(pactPublication, "PACT publication should be rendered");
+  assert.match(pactPublication, /href="https:\/\/liuzeyi25\.github\.io\/PACT-website\/"[^>]*>Website<\/a>[\s\S]*href="https:\/\/github\.com\/Liuzeyi25\/HILRL-A1X"[^>]*>Code<\/a>/);
+  assert.doesNotMatch(pactPublication, /anonymous\.4open\.science\/r\/HILRL-A1X-BC05/);
 });
 
 test("exports GitHub Pages metadata and every referenced local asset", async () => {

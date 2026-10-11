@@ -22,7 +22,7 @@
 | 分享预览图 | `public/og.png` |
 | 访客地球与统计入口 | `app/page.tsx`、`app/map-my-visitors-tracker.tsx` |
 
-新增论文：复制 `publications` 数组中的一个对象，修改 `venue`、`year`、`title`、`authors`、`paper`；`code` 和 `website` 为可选字段。目前同时填写这两个字段时，页面优先显示 Code 链接。
+新增论文：复制 `publications` 数组中的一个对象，修改 `venue`、`year`、`title`、`authors`、`paper`；`code` 和 `website` 为可选字段。同时填写这两个字段时，页面会同时显示 Website 和 Code 链接。
 
 新增新闻：在 `news` 数组最前面添加，例如：
 

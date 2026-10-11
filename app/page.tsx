@@ -50,7 +50,8 @@ const publications: Array<{
     title: "Preference-Calibrated Human-in-the-Loop Reinforcement Learning for Robotic Manipulation",
     authors: <><strong>Zeyi Liu</strong>, Guangyao Liu, Yinuo Qu, Yuquan Xue, Bofang Jia, Chunhua Yang, Weihua Gui, Keke Huang, Ziwei Wang</>,
     paper: "https://arxiv.org/abs/2606.03949",
-    code: "https://anonymous.4open.science/r/HILRL-A1X-BC05",
+    website: "https://liuzeyi25.github.io/PACT-website/",
+    code: "https://github.com/Liuzeyi25/HILRL-A1X",
   },
   {
     venue: "RAL submission",
@@ -126,7 +127,7 @@ export default function Home() {
                 <strong>Ph.D. Student</strong>, School of Automation<br />
                 <a href="https://baike.baidu.com/item/%E5%B7%A5%E4%B8%9A%E6%99%BA%E8%83%BD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%95%99%E8%82%B2%E9%83%A8%E9%87%8D%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4/62846869" target="_blank" rel="noreferrer">Key Laboratory of Industrial Intelligence and Systems, Ministry of Education</a><br />
                 Central South University, Changsha 410083, China<br />
-                <strong>Supervisors:</strong> <a href="https://faculty.csu.edu.cn/guiweihua/zh_CN/index.htm" target="_blank" rel="noreferrer">Weihua Gui</a>, Academician of the Chinese Academy of Engineering, and Professor <a href="https://faculty.csu.edu.cn/huangkeke/zh_CN/index/64160/list/index.htm" target="_blank" rel="noreferrer">Keke Huang</a>
+                <strong>Supervisors:</strong> Prof. <a href="https://faculty.csu.edu.cn/guiweihua/zh_CN/index.htm" target="_blank" rel="noreferrer">Weihua Gui</a> and Prof. <a href="https://faculty.csu.edu.cn/huangkeke/zh_CN/index/64160/list/index.htm" target="_blank" rel="noreferrer">Keke Huang</a>
               </p>
               <p>
                 <strong>Visiting Ph.D. Student</strong>, School of Electrical and Electronic Engineering<br />
@@ -135,7 +136,7 @@ export default function Home() {
               </p>
             </div>
             <p>
-              I am currently a Ph.D. student in School of Automation at Central South University and a visiting Ph.D. student in School of Electrical and Electronic Engineering at Nanyang Technological University. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> under the supervision of Assistant Professor Ziwei Wang.
+              I am currently a Ph.D. student in School of Automation at Central South University under the supervision of Prof. <a href="https://faculty.csu.edu.cn/guiweihua/zh_CN/index.htm" target="_blank" rel="noreferrer">Weihua Gui</a> and Prof. <a href="https://faculty.csu.edu.cn/huangkeke/zh_CN/index/64160/list/index.htm" target="_blank" rel="noreferrer">Keke Huang</a>, and a visiting Ph.D. student in School of Electrical and Electronic Engineering at Nanyang Technological University. I received my B.Eng. degree in Automation from Central South University in 2022. Since January 2026, I have been a visiting Ph.D. student at Nanyang Technological University, where I conduct research in the <a href="https://pine-lab-ntu.github.io/" target="_blank" rel="noreferrer">PINE Lab</a> under the supervision of Assistant Professor Ziwei Wang.
             </p>
             <p>
               My current research focuses on Industrial Intelligence and Embodied AI.
@@ -162,7 +163,9 @@ export default function Home() {
                   <p className="publication-meta">
                     <em>{publication.venue}</em>, {publication.year}.
                     <a href={publication.paper} target="_blank" rel="noreferrer">Paper</a>
-                    {publication.code ? <><span aria-hidden="true"> · </span><a href={publication.code} target="_blank" rel="noreferrer">Code</a></> : publication.website ? <><span aria-hidden="true"> · </span><a href={publication.website} target="_blank" rel="noreferrer">Website</a></> : <><span aria-hidden="true"> · </span><span>Code link pending</span></>}
+                    {publication.website && <><span aria-hidden="true"> · </span><a href={publication.website} target="_blank" rel="noreferrer">Website</a></>}
+                    {publication.code && <><span aria-hidden="true"> · </span><a href={publication.code} target="_blank" rel="noreferrer">Code</a></>}
+                    {!publication.website && !publication.code && <><span aria-hidden="true"> · </span><span>Code link pending</span></>}
                   </p>
                 </li>
               ))}
